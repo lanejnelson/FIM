@@ -7,11 +7,11 @@ import os
 
 try:
     if os.path.isfile(sys.argv[1]):
-        file = sys.argv[1]
+        hash_list = sys.argv[1]
     else:
         print("File does not exist")
 except:
-    print("You did something wrong idk what")
+    print("Syntax is python3 FIM.py hash_list")
     quit()
 #if len(sys.argv[1]) > 1 and os.path.isfile(sys.argv[1]):
     #file = sys.argv[1]
@@ -20,9 +20,9 @@ except:
     #quit()
 
 
-def hashfile(file):
+def hashfile(hash_list):
     sha256 = hashlib.sha256()    
-    with open(file, 'rb') as f:
+    with open(hash_list, 'rb') as f:
         while True:
             data = f.read()
             if not data:
@@ -33,12 +33,12 @@ def hashfile(file):
         
 
 
-original_hash = hashfile(file)
+original_hash = hashfile(hash_list)
 
 while True:
     print(original_hash + ' - Original hash')
     time.sleep(2)
-    next_hash = hashfile(file)
+    next_hash = hashfile(hash_list)
     if original_hash == next_hash:
         print("Hashes are correct")
     else:
