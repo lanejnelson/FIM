@@ -7,7 +7,7 @@ import hashlib
 
 if len(sys.argv[1]) > 1 and len(sys.argv[2]) > 1:
     file_list = sys.argv[1]
-    output_list = sys.argv[2]
+    output_file = sys.argv[2]
 else:
     print("Syntax is python3 hashdump.py file_list output_file")
     quit()
@@ -23,7 +23,7 @@ else:
 def hash_files(file_list):
     with open(file_list, 'r') as f:
         files = f.read()
-        file_array = (files.splitlines())
+        file_array = files.splitlines()
         sha256 = hashlib.sha256()
         for x in file_array:
             with open(x, 'rb') as f:
@@ -39,3 +39,8 @@ print(list)
 
 def write_files(list):
     with open(output_file, 'w') as o:
+        for l in list:
+            o.writelines(l+'\n')
+        
+
+write_files(list)
