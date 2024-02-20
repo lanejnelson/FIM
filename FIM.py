@@ -4,11 +4,22 @@ import time
 import pathlib
 import os
 
-if os.path.isfile(sys.argv[1]):
-    file = sys.argv[1]
-else:
-    print("Please supply a file to hash")
+
+try:
+    if os.path.isfile(sys.argv[1]):
+        file = sys.argv[1]
+    else:
+        print("File does not exist")
+except:
+    print("You did something wrong idk what")
     quit()
+#if len(sys.argv[1]) > 1 and os.path.isfile(sys.argv[1]):
+    #file = sys.argv[1]
+#else:
+    #print("Please supply a file to hash")
+    #quit()
+
+
 
 def hashfile(file):
     BUF_SIZE = 65536
