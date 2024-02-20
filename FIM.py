@@ -20,13 +20,11 @@ except:
     #quit()
 
 
-
 def hashfile(file):
-    BUF_SIZE = 65536
-    sha256 = hashlib.sha256()
+    sha256 = hashlib.sha256()    
     with open(file, 'rb') as f:
         while True:
-            data = f.read(BUF_SIZE)
+            data = f.read()
             if not data:
                 break
             sha256.update(data)
@@ -40,7 +38,7 @@ original_hash = hashfile(file)
 while True:
     print(original_hash + ' - Original hash')
     time.sleep(2)
-    next_hash=hashfile(file)
+    next_hash = hashfile(file)
     if original_hash == next_hash:
         print("Hashes are correct")
     else:
