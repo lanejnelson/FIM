@@ -5,13 +5,13 @@ import hashlib
 
 
 
-if len(sys.argv[1]) > 1:
+if len(sys.argv[1]) > 1 and len(sys.argv[2]) > 1:
     file_list = sys.argv[1]
-elif len(sys.argv[2]) > 1:
     output_list = sys.argv[2]
 else:
     print("Syntax is python3 hashdump.py file_list output_file")
     quit()
+
 list = []
 
 if os.path.isfile(file_list):
