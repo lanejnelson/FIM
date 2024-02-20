@@ -35,12 +35,15 @@ def hash_files(file_list):
                 
 
 hash_files(file_list)
-print(list)
+
+
 
 def write_files(list):
     with open(output_file, 'w') as o:
         for l in list:
             o.writelines(l+'\n')
-        
+        o.close()
+
 
 write_files(list)
+print("Hashes written to " + output_file)
