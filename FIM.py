@@ -27,12 +27,14 @@ def hashfile(hash_list):
             data = f.read()
             if not data:
                 break
-            sha256.update(data)
-            return sha256.hexdigest()
-        
-        
-
-
+            for l in f.readlines():
+                data = l.read()
+                sha256.update(data)
+                hash = sha256.hexdigest()
+                return(hash)
+            
+print(hashfile(hash_list))
+'''
 original_hash = hashfile(hash_list)
 
 while True:
@@ -44,3 +46,4 @@ while True:
     else:
         print("File has been modified!")
         break
+'''
